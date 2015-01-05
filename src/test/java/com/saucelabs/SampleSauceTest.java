@@ -120,16 +120,15 @@ public class SampleSauceTest implements SauceOnDemandSessionIdProvider {
     @Before
     public void setUp() throws Exception {
 
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability(CapabilityType.BROWSER_NAME, browser);
+      DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
+        desiredCapabilities.setBrowserName(System.getenv("SELENIUM_BROWSER"));
         if (version != null) {
-            capabilities.setCapability(CapabilityType.VERSION, version);
+            desiredCapabilities.setVersion(System.getenv("SELENIUM_VERSION"));
         }
-        capabilities.setCapability(CapabilityType.PLATFORM, os);
-        capabilities.setCapability("name", "Sauce Sample Test");
+        desiredCapabilities.setCapability(CapabilityType.PLATFORM, System.getenv("SELENIUM_PLATFORM"));
         this.driver = new RemoteWebDriver(
                 new URL("http://" + authentication.getUsername() + ":" + authentication.getAccessKey() + "@ondemand.saucelabs.com:80/wd/hub"),
-                capabilities);
+                desiredCapabilities);
         this.sessionId = (((RemoteWebDriver) driver).getSessionId()).toString();
 
     }
