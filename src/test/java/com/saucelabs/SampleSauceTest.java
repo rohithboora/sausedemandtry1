@@ -101,13 +101,13 @@ public class SampleSauceTest implements SauceOnDemandSessionIdProvider {
      * @return a LinkedList containing String arrays representing the browser combinations the test should be run against. The values
      * in the String array are used as part of the invocation of the test constructor
      */
-    @ConcurrentParameterized.Parameters
+/*    @ConcurrentParameterized.Parameters
     public static LinkedList browsersStrings() {
         LinkedList browsers = new LinkedList();
         browsers.add(new String[]{"Windows 8.1", "11", "internet explorer"});
         browsers.add(new String[]{"OSX 10.8", "6", "safari"});
         return browsers;
-    }
+    }*/
 
 
     /**
